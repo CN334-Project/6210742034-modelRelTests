@@ -1,22 +1,16 @@
 <?php
-
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Schema;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-
     use RefreshDatabase, WithFaker;
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
 
+    /** @test  */
     public function users_database_has_expected_columns()
     {
         $this->assertTrue(
