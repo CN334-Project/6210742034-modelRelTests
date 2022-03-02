@@ -2,17 +2,26 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
 use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
+
+    use RefreshDatabase, WithFaker;
     /**
      * A basic unit test example.
      *
      * @return void
      */
-    public function test_example()
+
+    public function users_database_has_expected_columns()
     {
-        $this->assertTrue(true);
+        $this->assertTrue(
+          Schema::hasColumns('users', [
+            'id','name', 'email', 'email_verified_at', 'password'
+        ]), 1);
     }
 }
